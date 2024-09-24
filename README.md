@@ -940,6 +940,6 @@ class FeatureCard extends StatelessWidget {
 
 ![Lampiran Login](login.png)
 ![Lampiran Home](home.png)
-![Lampiran Side](side.jpg)
-![Lampiran About](about.jpg)
+![Lampiran Side](side.png)
+![Lampiran About](about.png)
 
