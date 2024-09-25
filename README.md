@@ -1,11 +1,17 @@
-#PENJELASAN CODE 
+Nama : M Afnan Baihaqi 
+NIM : H1D022080
+Shift : B
 
+
+
+# PENJELASAN CODE 
+
+# MAIN
 main() Function: Fungsi ini merupakan titik awal eksekusi aplikasi. Di sini, runApp(const MyApp()) dijalankan untuk memulai aplikasi Flutter dengan widget MyApp.
 
 MyApp Class: MyApp adalah widget stateless yang menjadi kerangka utama aplikasi. Dalam widget ini, MaterialApp digunakan untuk mengonfigurasi aplikasi.
 
 MaterialApp:
-
     title: Menentukan judul aplikasi, yang digunakan di beberapa platform seperti Android saat menampilkan aplikasi di task manager.
     initialRoute: Menentukan rute awal yang ditampilkan saat aplikasi pertama kali dijalankan. Dalam hal ini, rute awal diarahkan ke halaman login (/).
     routes: Menyediakan daftar rute (URL) yang terkait dengan widget tertentu. Ada tiga rute yang didefinisikan:
@@ -15,6 +21,7 @@ MaterialApp:
 
 Navigasi: Aplikasi ini menggunakan rute untuk berpindah halaman. Misalnya, setelah login berhasil, aplikasi dapat menavigasi dari LoginPage ke HomePage dengan cara memanggil Navigator.pushReplacementNamed(context, '/home').
 
+# LOGIN PAGE
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:ui';
@@ -44,7 +51,6 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
       vsync: this,
       duration: const Duration(milliseconds: 500),
     );
-
     _buttonAnimation = Tween<double>(begin: 1.0, end: 1.05).animate(CurvedAnimation(
       parent: _animationController,
       curve: Curves.easeInOut,
@@ -130,9 +136,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
       setState(() {
         _isLoading = true;
       });
-
       await Future.delayed(const Duration(seconds: 2)); // Simulasi proses login
-
       if (_usernameController.text == 'admin' && _passwordController.text == 'admin') {
         _saveUsername();
         _showSnackbar('Login Successful');
@@ -143,7 +147,6 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
       } else {
         _showSnackbar('Incorrect Username or Password');
       }
-
       setState(() {
         _isLoading = false;
       });
@@ -294,6 +297,9 @@ Tampilan Layar:
 
     Tampilan login menggunakan Stack yang diisi dengan latar belakang gambar dan form login. Di bagian form, ada logo placeholder berupa lingkaran dengan ikon pengguna, input field untuk username dan password, serta tombol login yang terhubung dengan animasi.
     Pengguna juga dapat menekan Forgot Password jika lupa kata sandi, meskipun fungsinya belum diimplementasikan.
+
+# HOME PAGE
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:ui';
@@ -323,7 +329,6 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
       vsync: this,
       duration: const Duration(milliseconds: 500),
     );
-
     _buttonAnimation = Tween<double>(begin: 1.0, end: 1.05).animate(CurvedAnimation(
       parent: _animationController,
       curve: Curves.easeInOut,
@@ -409,9 +414,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
       setState(() {
         _isLoading = true;
       });
-
       await Future.delayed(const Duration(seconds: 2)); // Simulasi proses login
-
       if (_usernameController.text == 'admin' && _passwordController.text == 'admin') {
         _saveUsername();
         _showSnackbar('Login Successful');
@@ -422,7 +425,6 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
       } else {
         _showSnackbar('Incorrect Username or Password');
       }
-
       setState(() {
         _isLoading = false;
       });
@@ -575,6 +577,9 @@ Fungsi untuk Detail dan Keranjang:
 
     Ketika pengguna menekan gambar produk, kode diatur untuk menampilkan detail produk (walaupun fungsinya belum diimplementasikan).
     Tombol Add to Cart juga disiapkan untuk menambahkan produk ke keranjang belanja, meskipun fungsinya juga belum diimplementasikan.
+
+# SIDEMENU
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '/router_flutter/side_menu.dart';
@@ -644,7 +649,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             const SizedBox(height: 20),
-
             // Header "Featured Products"
             const Text(
               'Featured Products',
@@ -654,7 +658,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             const SizedBox(height: 20),
-
             // GridView untuk menampilkan produk
             Expanded(
               child: GridView.builder(
@@ -784,7 +787,10 @@ FeatureCard Widget:
         CircleAvatar: Sebagai ikon berbentuk lingkaran dengan warna latar belakang coklat muda, di dalamnya terdapat ikon yang melambangkan fitur tertentu (seperti bintang untuk kualitas premium).
         Text: Judul fitur ditampilkan dengan ukuran font yang besar dan tebal, dan deskripsi fitur diberikan di bawahnya dalam ukuran font yang lebih kecil.
     CircleAvatar dan teks diberi SizedBox untuk memberikan spasi antar elemen agar tampil lebih rapi.
-  import 'package:flutter/material.dart';
+
+# ABOUT PAGE
+
+import 'package:flutter/material.dart';
 import 'package:pertemuan3/router_flutter/side_menu.dart';
 
 class AboutPage extends StatelessWidget {
@@ -834,7 +840,6 @@ class AboutPage extends StatelessWidget {
                 ),
               ),
             ),
-
             // Bagian Deskripsi
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -863,7 +868,6 @@ class AboutPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 40),
-
                   // Fitur Utama
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -895,7 +899,6 @@ class AboutPage extends StatelessWidget {
     );
   }
 }
-
 // Widget custom untuk menampilkan fitur
 class FeatureCard extends StatelessWidget {
   final IconData icon;
